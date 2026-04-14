@@ -6,19 +6,20 @@ export default function HeroSection({ techStack }) {
       <div className="pointer-events-none absolute -left-20 top-24 size-80 rounded-full bg-blue-600/20 blur-[120px]" />
       <div className="pointer-events-none absolute -right-16 bottom-10 size-80 rounded-full bg-blue-500/20 blur-[130px]" />
 
-      <div className="relative z-10 order-2 lg:order-1">
+      <div className="relative z-10 order-1 lg:order-1">
         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-blue-300">
-          Disponible para práctica profesional
+          5to año de Ingeniería Civil Informática
         </div>
 
         <h1 className="mb-6 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-          Ingeniería de software para
-          <span className="block text-blue-500">sistemas escalables</span>
+          Soluciones tecnológicas desde
+          <span className="block text-blue-500">el código hasta la nube</span>
         </h1>
 
         <p className="mb-10 max-w-2xl text-lg text-zinc-600 dark:text-zinc-300">
-          Soy estudiante de Ingeniería Civil Informática enfocado en backend de alto rendimiento, arquitectura
-          distribuida y desarrollo full stack con buenas prácticas de ingeniería.
+          Soy estudiante de Ingeniería Civil Informática con especial enfoque en desarrollo Full Stack (web y móvil) y 
+          arquitectura de software. Me apasiona la administración de sistemas y actualmente estoy expandiendo mis conocimientos
+           en infraestructura Cloud.
         </p>
 
         <div className="mb-12 flex flex-wrap gap-4">
@@ -39,7 +40,7 @@ export default function HeroSection({ techStack }) {
         <div className="flex flex-wrap items-center gap-6">
           <div className="flex items-center gap-3">
             <a
-              href="https://github.com"
+              href="https://github.com/esilvaar"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
@@ -48,7 +49,7 @@ export default function HeroSection({ techStack }) {
               <GithubIcon />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/eduardo-silva-arellana-4679b133b/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -73,19 +74,24 @@ export default function HeroSection({ techStack }) {
         </div>
       </div>
 
-      <div className="relative order-1 flex justify-center lg:order-2 lg:justify-end">
-        <div className="relative w-64 rounded-2xl bg-zinc-900 p-8 shadow-2xl sm:w-80">
-          <div className="absolute -inset-4 -z-10 rounded-3xl bg-blue-500/20 blur-2xl" />
-          <div className="mb-6 flex items-center justify-between">
-            <span className="text-xs font-semibold uppercase tracking-widest text-zinc-400">Perfil</span>
-            <span className="rounded-md border border-blue-500/30 bg-blue-500/10 px-2 py-1 text-xs font-bold text-blue-300">
-              4+ años
-            </span>
+      <div className="relative order-2 flex justify-center lg:order-2 lg:justify-end">
+        <div className="relative w-72 sm:w-96 rounded-3xl bg-gradient-to-br from-zinc-900 via-blue-950 to-blue-700 p-10 shadow-2xl border border-blue-500/30">
+          <div className="absolute -inset-5 -z-10 rounded-3xl bg-gradient-to-br from-blue-400/20 via-blue-500/10 to-zinc-900/10 blur-2xl animate-pulse" />
+          <div className="mb-8 flex flex-col items-center gap-3">
+            <div className="relative">
+              <span className=" absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-semibold uppercase tracking-widest text-blue-400 bg-zinc-900 px-3 py-0.5 rounded-full border border-blue-500/20 shadow">Perfil</span>
+              <div className="mt-4 relative size-36 sm:size-44 rounded-full bg-gradient-to-tr from-blue-500 via-blue-400 to-blue-300 p-1 shadow-lg">
+                <img src="/Perfil.JPG" alt="Perfil" className="rounded-full w-full h-full object-cover border-4 border-zinc-900 shadow-xl transition-transform duration-300 hover:scale-105" />
+                <span className="absolute bottom-2 right-2 block size-4 rounded-full bg-green-400 border-2 border-zinc-900 shadow-lg animate-pulse" title="Disponible" />
+              </div>
+            </div>
           </div>
-          <h2 className="mb-3 text-2xl font-bold text-white">Est. Ing. Civil Informática</h2>
-          <p className="text-sm leading-relaxed text-zinc-300">
-            Interés en sistemas distribuidos, observabilidad, optimización de APIs y desarrollo de productos con
-            impacto real.
+          <h2 className="mb-2 text-2xl font-bold text-white text-center">
+            Est. Ing. Civil Informática
+          </h2>
+          <p className="text-sm leading-relaxed text-zinc-300 text-center">
+            Enfocado en la construcción de soluciones eficientes, integración de servicios y despliegue de aplicaciones
+            escalables en entornos modernos.
           </p>
         </div>
       </div>

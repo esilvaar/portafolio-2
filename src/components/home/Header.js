@@ -8,7 +8,7 @@ export default function Header({ navLinks }) {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-blue-500/20 bg-[#101622]/80 backdrop-blur-md">
       <nav className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-6">
-        <a href="#" className="group flex items-center gap-3">
+        <a href="#" className="group flex items-center gap-3 ">
           <span className="grid size-10 place-items-center rounded-lg bg-blue-600 text-lg font-bold text-white">ES</span>
           <span className="text-lg font-semibold tracking-tight text-white transition-colors group-hover:text-blue-400">
             Eduardo Egidio Silva Arellana
