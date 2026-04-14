@@ -1,3 +1,4 @@
+import { SiReact, SiNodedotjs, SiPython, SiPostgresql, SiDocker } from "react-icons/si";
 export const navLinks = [
   { href: "#proyectos", label: "Proyectos" },
   { href: "#skills", label: "Skills" },
@@ -5,51 +6,47 @@ export const navLinks = [
   { href: "#contacto", label: "Contacto" },
 ];
 
-export const techStack = ["React", "Node.js", "Python", "PostgreSQL"];
+export const techStack = ["React", "Node.js", "Python", "PostgreSQL", "Docker"];
 
 export const projects = [
   {
-    title: "Orquestador de Microservicios Académico",
-    tags: ["Java", "Sistemas Distribuidos"],
+    title: "Sistema interno para Universidad Autónoma ",
+    tags: ["React", "Python",  "Microservicios", "Docker"],
     description:
-      "Plataforma para coordinar servicios backend con trazabilidad, colas y observabilidad para laboratorios universitarios.",
+      "Plataforma para gestionar registros de asistencia en ayudantias y tutorias universitarias. Permite a estudiantes y profesores llevar un control eficiente de la participación académica complementado con un dashboard de estadísticas.",
+    web: "https://ua.esilva.xyz/login",
   },
   {
-    title: "Predicción de Flujo Vehicular",
-    tags: ["Python", "Machine Learning"],
+    title: "Sistema de gestión de ventas de rifa",
+    tags: ["react", "Firebase"],
     description:
-      "Modelo de análisis de tráfico urbano con series temporales y visualización para apoyar decisiones de movilidad.",
+      "Sistema interno de gestion de ventas de rifa para un club de pesca, con un panel de visualización pública en donde se pueden realizar reservaciones de numeros que en el panel de administracion se pueden aceptar o liberar por el vendedor.",
+    web: "https://rifa.cdpcriotolten.online",
   },
-  {
-    title: "API Gateway de Baja Latencia",
-    tags: ["Rust", "Networking"],
-    description:
-      "Gateway seguro orientado a alto rendimiento para enrutar peticiones con tiempos de respuesta sub-milisegundo.",
-  },
+  
 ];
 
 export const skills = [
-  "Estructuras de Datos y Algoritmos",
-  "Arquitectura Backend",
-  "Desarrollo Full Stack",
-  "Bases de Datos SQL/NoSQL",
-  "Cloud y DevOps",
-  "Testing y Calidad de Software",
+  { name: "React", icon: SiReact },
+  { name: "Node.js", icon: SiNodedotjs },
+  { name: "Python", icon: SiPython },
+  { name: "PostgreSQL", icon: SiPostgresql },
+  { name: "Docker", icon: SiDocker },
 ];
 
 export const experience = [
   {
-    role: "Ayudante de Programación",
-    place: "Universidad",
+    role: "Desarrollador Frontend – Sistema de Asistencia",
+    place: "Proyecto personal / académico",
     period: "2025 - Actualidad",
     detail:
-      "Apoyo en talleres de estructuras de datos, revisión de tareas y mentoría técnica para estudiantes de primer año.",
+      "Diseño e implementación de un sistema de gestión de asistencia, incluyendo desarrollo frontend, backend, autenticación de usuarios y manejo de base de datos.",
   },
   {
-    role: "Desarrollador Full Stack (Proyecto Académico)",
-    place: "Equipo multidisciplinario",
-    period: "2024 - 2025",
+    role: "Practicante de Infraestructura y Cloud",
+    place: "Anacondaweb S.A",
+    period: "Dic 2025 - Feb 2026",
     detail:
-      "Diseño e implementación de módulos frontend y backend para un sistema de gestión de prácticas profesionales.",
+      "Participación en entornos de infraestructura cloud y datacenter, apoyando en la administración de servidores, monitoreo de servicios y resolución de incidencias en plataformas web.",
   },
 ];

@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://example.com"),
+  metadataBase: new URL("https://esilva.xyz"),
   title: "Portafolio | Estudiante de Ingeniería Civil Informática",
   description:
     "Portafolio personal enfocado en desarrollo de software, backend y sistemas escalables.",
@@ -43,14 +43,14 @@ export const metadata = {
     title: "Portafolio | Estudiante de Ingeniería Civil Informática",
     description:
       "Portafolio personal enfocado en desarrollo de software, backend y sistemas escalables.",
-    url: "/",
+    url: "https://esilva.xyz",
     siteName: "Portafolio",
     locale: "es_CL",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Portafolio | Estudiante de Ingeniería Civil Informática",
+    title: "Eduardo Silva Arellana - Ingeniería Civil Informática",
     description:
       "Portafolio personal enfocado en desarrollo de software, backend y sistemas escalables.",
   },

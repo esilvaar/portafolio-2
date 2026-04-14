@@ -5,10 +5,11 @@ export default function SkillsSection({ skills }) {
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {skills.map((skill) => (
           <div
-            key={skill}
-            className="rounded-lg border border-zinc-200 bg-white px-5 py-4 text-sm font-medium dark:border-zinc-800 dark:bg-zinc-900/40"
+            key={skill.name}
+            className="flex items-center gap-3 rounded-lg border border-zinc-200 bg-white px-5 py-4 text-sm font-medium dark:border-zinc-800 dark:bg-zinc-900/40"
           >
-            {skill}
+            <skill.icon className="w-7 h-7 text-blue-500" />
+            <span>{skill.name}</span>
           </div>
         ))}
       </div>
