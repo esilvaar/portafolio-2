@@ -20,7 +20,7 @@ export const projects = [
     title: "Sistema de gestión de ventas de rifa",
     tags: ["react", "Firebase"],
     description:
-      "Sistema interno de gestion de ventas de rifa para un club de pesca, con un panel de visualización pública en donde se pueden realizar reservaciones de numeros que en el panel de administracion se pueden aceptar o liberar por el vendedor.",
+      "Sistema interno de gestión de ventas de rifa para un club de pesca, con un panel de visualización pública en donde se pueden realizar reservaciones de números que en el panel de administración se pueden aceptar o liberar por el vendedor.",
     web: "https://rifa.cdpcriotolten.online",
   },
   

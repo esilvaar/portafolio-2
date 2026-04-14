@@ -26,7 +26,10 @@ export const metadata = {
   authors: [{ name: "Estudiante de Ingeniería Civil Informática" }],
   creator: "Estudiante de Ingeniería Civil Informática",
   alternates: {
-    canonical: "/",
+    canonical: "https://esilva.xyz",
+  },
+  icons: {
+    apple: "/apple-touch-icon.png",
   },
   robots: {
     index: true,

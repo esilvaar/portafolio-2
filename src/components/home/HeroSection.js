@@ -17,9 +17,7 @@ export default function HeroSection({ techStack }) {
         </h1>
 
         <p className="mb-10 max-w-2xl text-lg text-zinc-600 dark:text-zinc-300">
-          Soy estudiante de Ingeniería Civil Informática con especial enfoque en desarrollo Full Stack (web y móvil) y 
-          arquitectura de software. Me apasiona la administración de sistemas y actualmente estoy expandiendo mis conocimientos
-           en infraestructura Cloud.
+          Bienvenido a mi <strong>portafolio</strong> personal. Soy estudiante de <strong>Ingeniería Civil Informática</strong> con especial enfoque en desarrollo Full Stack (web y móvil) y arquitectura de software. Me apasiona la administración de sistemas y la programación de alta calidad, creando soluciones escalables y seguras desde que escribo la primera línea de <strong>código</strong> hasta su despliegue en la <strong>nube</strong>.
         </p>
 
         <div className="mb-12 flex flex-wrap gap-4">
