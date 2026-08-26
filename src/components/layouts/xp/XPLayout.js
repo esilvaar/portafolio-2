@@ -1,13 +1,13 @@
 "use client";
 
 import { useState, useCallback, useRef, useEffect } from "react";
-import Header from "./Header";
-import Footer from "./Footer";
-import HeroSection from "./HeroSection";
-import ProjectsSection from "./ProjectsSection";
-import SkillsSection from "./SkillsSection";
-import ExperienceSection from "./ExperienceSection";
-import ContactSection from "./ContactSection";
+import Header from "./XPHeader";
+import Footer from "./XPFooter";
+import HeroSection from "./XPHero";
+import ProjectsSection from "./XPProjects";
+import SkillsSection from "./XPSkills";
+import ExperienceSection from "./XPExperience";
+import ContactSection from "./XPContact";
 import XPWindow from "@/components/ui/XPWindow";
 import { experience, navLinks, projects, skills, techStack } from "./data";
 
@@ -87,7 +87,7 @@ const CONTENT = {
  * Desktop: ventanas con posición absoluta, draggables, cascade.
  * Mobile: ventanas en flow vertical (stacked), sin drag.
  */
-export default function HomePage() {
+export default function XPLayout() {
   // --- Window states ---
   const [windowStates, setWindowStates] = useState(() => {
     const states = {};

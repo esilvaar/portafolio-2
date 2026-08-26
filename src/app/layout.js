@@ -1,4 +1,5 @@
 import "./globals.css";
+import { ThemeProvider } from "@/context/ThemeContext";
 
 export const metadata = {
   metadataBase: new URL("https://esilva.xyz"),
@@ -60,7 +61,9 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="bg-xp-desktop text-xp-text font-sans text-[13px] leading-relaxed antialiased">
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
