@@ -1,18 +1,21 @@
+/**
+ * SkillsSection — Grid de skills dentro de una ventana XP.
+ *
+ * Cada skill se muestra como un item estilo "icono de archivo"
+ * del Explorador de Windows, con icono y nombre.
+ */
 export default function SkillsSection({ skills }) {
   return (
-    <section id="skills" className="mx-auto w-full max-w-7xl px-6 py-24">
-      <h2 className="mb-12 text-center text-3xl font-bold">Skills Técnicos</h2>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
         {skills.map((skill) => (
           <div
             key={skill.name}
-            className="flex items-center gap-3 rounded-lg border border-zinc-200 bg-white px-5 py-4 text-sm font-medium dark:border-zinc-800 dark:bg-zinc-900/40"
+            className="xp-bevel-raised bg-xp-btn-face flex items-center gap-2.5 px-3 py-2.5 text-[13px] font-medium text-xp-text hover:bg-xp-btn-highlight transition-colors duration-75 cursor-default"
           >
-            <skill.icon className="w-7 h-7 text-blue-500" />
-            <span>{skill.name}</span>
+            <skill.icon className="w-6 h-6 text-xp-blue shrink-0" />
+            <span className="truncate">{skill.name}</span>
           </div>
         ))}
-      </div>
-    </section>
+    </div>
   );
 }

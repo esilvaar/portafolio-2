@@ -1,98 +1,118 @@
+import XPButton from "@/components/ui/XPButton";
+import XPBadge from "@/components/ui/XPBadge";
 import { GithubIcon, LinkedInIcon } from "./icons";
 
+/**
+ * HeroSection — Sección hero dentro de una ventana XP.
+ *
+ * Contiene:
+ * - Intro text con h1 (heading principal de la página)
+ * - CTAs como XPButtons
+ * - Social links
+ * - Tech stack badges
+ * - Panel de perfil con foto (estilo panel sunken de XP)
+ */
 export default function HeroSection({ techStack }) {
   return (
-    <section className="relative mx-auto grid min-h-screen w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 py-14 lg:grid-cols-2">
-      <div className="pointer-events-none absolute -left-20 top-24 size-80 rounded-full bg-blue-600/20 blur-[120px]" />
-      <div className="pointer-events-none absolute -right-16 bottom-10 size-80 rounded-full bg-blue-500/20 blur-[130px]" />
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center">
+        {/* Left: Text content */}
+        <div className="order-1">
+          <XPBadge color="blue" className="mb-4">
+            5to año de Ingeniería Civil Informática
+          </XPBadge>
 
-      <div className="relative z-10 order-1 lg:order-1">
-        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-blue-300">
-          5to año de Ingeniería Civil Informática
-        </div>
+          <h1 className="text-xl sm:text-2xl lg:text-3xl font-heading font-bold text-xp-text mb-4 leading-tight">
+            Soluciones tecnológicas desde
+            <span className="block text-xp-blue">el código hasta la nube</span>
+          </h1>
 
-        <h1 className="mb-6 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-          Soluciones tecnológicas desde
-          <span className="block text-blue-500">el código hasta la nube</span>
-        </h1>
+          <p className="text-xp-text-secondary mb-6 leading-relaxed max-w-2xl">
+            Bienvenido a mi <strong>portafolio</strong> personal. Soy estudiante
+            de <strong>Ingeniería Civil Informática</strong> con especial enfoque
+            en desarrollo Full Stack (web y móvil) y arquitectura de software. Me
+            apasiona la administración de sistemas y la programación de alta
+            calidad, creando soluciones escalables y seguras desde que escribo la
+            primera línea de <strong>código</strong> hasta su despliegue en la{" "}
+            <strong>nube</strong>.
+          </p>
 
-        <p className="mb-10 max-w-2xl text-lg text-zinc-600 dark:text-zinc-300">
-          Bienvenido a mi <strong>portafolio</strong> personal. Soy estudiante de <strong>Ingeniería Civil Informática</strong> con especial enfoque en desarrollo Full Stack (web y móvil) y arquitectura de software. Me apasiona la administración de sistemas y la programación de alta calidad, creando soluciones escalables y seguras desde que escribo la primera línea de <strong>código</strong> hasta su despliegue en la <strong>nube</strong>.
-        </p>
-
-        <div className="mb-12 flex flex-wrap gap-4">
-          <a
-            href="#proyectos"
-            className="rounded-xl bg-blue-600 px-8 py-4 text-sm font-bold text-white transition hover:bg-blue-500"
-          >
-            Ver proyectos
-          </a>
-          <a
-            href="#contacto"
-            className="rounded-xl bg-zinc-200 px-8 py-4 text-sm font-bold text-zinc-900 transition hover:bg-zinc-300 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-700"
-          >
-            Contactar
-          </a>
-        </div>
-
-        <div className="flex flex-wrap items-center gap-6">
-          <div className="flex items-center gap-3">
-            <a
-              href="https://github.com/esilvaar"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              className="grid size-11 place-items-center rounded-xl bg-zinc-200 text-zinc-600 transition hover:border-blue-500/30 hover:bg-blue-500/10 hover:text-blue-500 dark:bg-zinc-800 dark:text-zinc-300"
-            >
-              <GithubIcon />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/eduardo-silva-arellana-4679b133b/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="grid size-11 place-items-center rounded-xl bg-zinc-200 text-zinc-600 transition hover:border-blue-500/30 hover:bg-blue-500/10 hover:text-blue-500 dark:bg-zinc-800 dark:text-zinc-300"
-            >
-              <LinkedInIcon />
-            </a>
+          <div className="flex flex-wrap gap-2 mb-6">
+            <XPButton variant="primary" href="#proyectos">
+              Ver proyectos
+            </XPButton>
+            <XPButton href="#contacto">Contactar</XPButton>
           </div>
 
-          <div className="hidden h-8 w-px bg-zinc-300 dark:bg-zinc-700 sm:block" />
-
-          <div className="flex flex-wrap items-center gap-2">
-            {techStack.map((tech) => (
-              <span
-                key={tech}
-                className="rounded-md bg-zinc-200/70 px-2.5 py-1 text-xs font-medium text-zinc-700 dark:bg-zinc-800/70 dark:text-zinc-300"
+          <div className="flex flex-wrap items-center gap-4">
+            {/* Social links */}
+            <div className="flex items-center gap-1.5">
+              <a
+                href="https://github.com/esilvaar"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="xp-bevel-raised bg-xp-btn-face text-xp-text p-1.5 inline-flex items-center justify-center hover:bg-xp-btn-highlight"
               >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
+                <GithubIcon />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/eduardo-silva-arellana-4679b133b/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="xp-bevel-raised bg-xp-btn-face text-xp-text p-1.5 inline-flex items-center justify-center hover:bg-xp-btn-highlight"
+              >
+                <LinkedInIcon />
+              </a>
+            </div>
 
-      <div className="relative order-2 flex justify-center lg:order-2 lg:justify-end">
-        <div className="relative w-72 sm:w-96 rounded-3xl bg-gradient-to-br from-zinc-900 via-blue-950 to-blue-700 p-10 shadow-2xl border border-blue-500/30">
-          <div className="absolute -inset-5 -z-10 rounded-3xl bg-gradient-to-br from-blue-400/20 via-blue-500/10 to-zinc-900/10 blur-2xl animate-pulse" />
-          <div className="mb-8 flex flex-col items-center gap-3">
-            <div className="relative">
-              <span className=" absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-semibold uppercase tracking-widest text-blue-400 bg-zinc-900 px-3 py-0.5 rounded-full border border-blue-500/20 shadow">Perfil</span>
-              <div className="mt-4 relative size-36 sm:size-44 rounded-full bg-gradient-to-tr from-blue-500 via-blue-400 to-blue-300 p-1 shadow-lg">
-                <img src="/Perfil.JPG" alt="Perfil" className="rounded-full w-full h-full object-cover border-4 border-zinc-900 shadow-xl transition-transform duration-300 hover:scale-105" />
-                <span className="absolute bottom-2 right-2 block size-4 rounded-full bg-green-400 border-2 border-zinc-900 shadow-lg animate-pulse" title="Disponible" />
-              </div>
+            {/* Divider */}
+            <div className="hidden sm:block h-5 w-px bg-xp-border-light" />
+
+            {/* Tech stack badges */}
+            <div className="flex flex-wrap items-center gap-1.5">
+              {techStack.map((tech) => (
+                <XPBadge key={tech} color="gray">
+                  {tech}
+                </XPBadge>
+              ))}
             </div>
           </div>
-          <h2 className="mb-2 text-2xl font-bold text-white text-center">
-            Est. Ing. Civil Informática
-          </h2>
-          <p className="text-sm leading-relaxed text-zinc-300 text-center">
-            Enfocado en la construcción de soluciones eficientes, integración de servicios y despliegue de aplicaciones
-            escalables en entornos modernos.
-          </p>
         </div>
-      </div>
-    </section>
+
+        {/* Right: Profile panel */}
+        <div className="order-2 flex justify-center lg:justify-end">
+          <div className="xp-bevel-sunken bg-xp-panel p-5 w-64 sm:w-72 text-center">
+            {/* Profile badge */}
+            <div className="relative mb-3">
+              <span className="xp-bevel-raised bg-xp-frame px-2 py-0.5 text-[10px] font-bold uppercase text-xp-blue tracking-wide">
+                Perfil
+              </span>
+            </div>
+
+            {/* Profile photo */}
+            <div className="relative inline-block mb-4">
+              <img
+                src="/Perfil.JPG"
+                alt="Foto de perfil de Eduardo Silva"
+                className="w-32 h-32 sm:w-40 sm:h-40 object-cover xp-bevel-sunken"
+              />
+              <span
+                className="absolute bottom-1 right-1 w-3 h-3 rounded-full bg-xp-success border-2 border-xp-window animate-blink"
+                title="Disponible"
+              />
+            </div>
+
+            <h2 className="text-base font-bold text-xp-text font-heading mb-1">
+              Est. Ing. Civil Informática
+            </h2>
+            <p className="text-[12px] text-xp-text-secondary leading-relaxed">
+              Enfocado en la construcción de soluciones eficientes, integración
+              de servicios y despliegue de aplicaciones escalables en entornos
+              modernos.
+            </p>
+          </div>
+        </div>
+    </div>
   );
 }

@@ -1,30 +1,349 @@
 @import "tailwindcss";
 
+/* ============================================
+   WINDOWS XP LUNA — DESIGN SYSTEM
+   ============================================
+   Tokens auto-switch via :root / .dark.
+   Registered with Tailwind 4 via @theme inline.
+   ============================================ */
+
+/* --- Class-based dark mode variant --- */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ============================================
+   THEME TOKENS — Light Mode (Luna Classic)
+   ============================================ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Title bar / Accent */
+  --xp-title-start: #0A246A;
+  --xp-title-end: #A6CAF6;
+  --xp-blue: #2B6DE8;
+  --xp-selection: #316AC5;
+
+  /* Backgrounds */
+  --xp-desktop: #3A6EA5;
+  --xp-window: #FFFFFF;
+  --xp-frame: #ECE9D8;
+  --xp-panel: #F1EFE2;
+  --xp-taskbar-bg: #245EDC;
+
+  /* Borders 3D */
+  --xp-highlight: #FFFFFF;
+  --xp-border-light: #D6D2C2;
+  --xp-shadow: #ACA899;
+  --xp-dark-shadow: #716F64;
+
+  /* Text */
+  --xp-text: #000000;
+  --xp-text-secondary: #4A4A4A;
+  --xp-text-muted: #808080;
+  --xp-text-title: #FFFFFF;
+  --xp-link: #0066CC;
+
+  /* UI Elements */
+  --xp-close-bg: #E04343;
+  --xp-close-hover: #FF6B6B;
+  --xp-btn-face: #ECE9D8;
+  --xp-btn-highlight: #F6F4EC;
+  --xp-hover: #C1D2EE;
+  --xp-active: #98B5E2;
+  --xp-success: #3C9A3C;
+  --xp-error: #E04343;
+  --xp-start-green: #3C9A3C;
 }
 
+/* ============================================
+   THEME TOKENS — Dark Mode (Royale Noir)
+   ============================================ */
+.dark {
+  --xp-title-start: #0D1B3E;
+  --xp-title-end: #2B5EA8;
+  --xp-blue: #3B7DD8;
+  --xp-selection: #1A4A8A;
+
+  --xp-desktop: #0D1117;
+  --xp-window: #1A1A2E;
+  --xp-frame: #252540;
+  --xp-panel: #1E1E38;
+  --xp-taskbar-bg: #0D1B3E;
+
+  --xp-highlight: #404060;
+  --xp-border-light: #353550;
+  --xp-shadow: #151525;
+  --xp-dark-shadow: #0A0A18;
+
+  --xp-text: #E0E0F0;
+  --xp-text-secondary: #9090B0;
+  --xp-text-muted: #606080;
+  --xp-text-title: #E0E0FF;
+  --xp-link: #6BA4FF;
+
+  --xp-close-bg: #C03030;
+  --xp-close-hover: #E05050;
+  --xp-btn-face: #2A2A48;
+  --xp-btn-highlight: #353558;
+  --xp-hover: #2A3A5E;
+  --xp-active: #1A2A4E;
+  --xp-success: #2E7A2E;
+  --xp-error: #C03030;
+  --xp-start-green: #2E7A2E;
+}
+
+/* ============================================
+   TAILWIND 4 THEME REGISTRATION
+   ============================================ */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Colors — auto-switch with .dark */
+  --color-xp-desktop: var(--xp-desktop);
+  --color-xp-window: var(--xp-window);
+  --color-xp-frame: var(--xp-frame);
+  --color-xp-panel: var(--xp-panel);
+  --color-xp-taskbar: var(--xp-taskbar-bg);
+  --color-xp-highlight: var(--xp-highlight);
+  --color-xp-border-light: var(--xp-border-light);
+  --color-xp-shadow: var(--xp-shadow);
+  --color-xp-dark-shadow: var(--xp-dark-shadow);
+  --color-xp-text: var(--xp-text);
+  --color-xp-text-secondary: var(--xp-text-secondary);
+  --color-xp-text-muted: var(--xp-text-muted);
+  --color-xp-text-title: var(--xp-text-title);
+  --color-xp-link: var(--xp-link);
+  --color-xp-close: var(--xp-close-bg);
+  --color-xp-close-hover: var(--xp-close-hover);
+  --color-xp-btn-face: var(--xp-btn-face);
+  --color-xp-btn-highlight: var(--xp-btn-highlight);
+  --color-xp-hover: var(--xp-hover);
+  --color-xp-active: var(--xp-active);
+  --color-xp-success: var(--xp-success);
+  --color-xp-error: var(--xp-error);
+  --color-xp-blue: var(--xp-blue);
+  --color-xp-selection: var(--xp-selection);
+  --color-xp-start-green: var(--xp-start-green);
+
+  /* Fonts — system fonts for XP authenticity */
+  --font-sans: Tahoma, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-heading: "Segoe UI", Tahoma, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: Consolas, "Courier New", monospace;
+  --font-titlebar: "Trebuchet MS", Tahoma, sans-serif;
+
+  /* Shadows */
+  --shadow-xp-window: 3px 3px 12px rgba(0, 0, 0, 0.4);
+
+  /* Animations */
+  --animate-window-open: window-open 0.3s ease-out forwards;
+  --animate-blink: blink-cursor 0.8s step-end infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ============================================
+   KEYFRAMES
+   ============================================ */
+@keyframes window-open {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+@keyframes blink-cursor {
+  50% {
+    opacity: 0;
+  }
 }
 
+/* ============================================
+   BASE STYLES
+   ============================================ */
 html {
   scroll-behavior: smooth;
+}
+
+/* ============================================
+   XP TITLE BAR GRADIENT
+   Multi-stop gradient — too complex for Tailwind
+   ============================================ */
+.xp-titlebar-gradient {
+  background: linear-gradient(
+    180deg,
+    #0A246A 0%,
+    #245EDC 6%,
+    #3C8CF4 90%,
+    #245EDC 100%
+  );
+}
+
+.dark .xp-titlebar-gradient {
+  background: linear-gradient(
+    180deg,
+    #0D1B3E 0%,
+    #1E3A6E 6%,
+    #2B5EA8 90%,
+    #1E3A6E 100%
+  );
+}
+
+/* ============================================
+   XP TASKBAR GRADIENT
+   ============================================ */
+.xp-taskbar-gradient {
+  background: linear-gradient(
+    180deg,
+    #3C8CF4 0%,
+    #245EDC 8%,
+    #245EDC 92%,
+    #1A3F9E 100%
+  );
+}
+
+.dark .xp-taskbar-gradient {
+  background: linear-gradient(
+    180deg,
+    #1A3060 0%,
+    #0D1B3E 8%,
+    #0D1B3E 92%,
+    #0A1530 100%
+  );
+}
+
+/* ============================================
+   XP 3D BEVELED BORDERS
+   Complex multi-property patterns
+   ============================================ */
+.xp-bevel-raised {
+  border: 1px solid;
+  border-color: var(--xp-highlight) var(--xp-dark-shadow) var(--xp-dark-shadow) var(--xp-highlight);
+  box-shadow:
+    inset 1px 1px 0 var(--xp-btn-highlight),
+    inset -1px -1px 0 var(--xp-shadow);
+}
+
+.xp-bevel-raised:active {
+  border-color: var(--xp-dark-shadow) var(--xp-highlight) var(--xp-highlight) var(--xp-dark-shadow);
+  box-shadow:
+    inset 1px 1px 0 var(--xp-shadow),
+    inset -1px -1px 0 var(--xp-btn-highlight);
+}
+
+.xp-bevel-sunken {
+  border: 1px solid;
+  border-color: var(--xp-shadow) var(--xp-highlight) var(--xp-highlight) var(--xp-shadow);
+  box-shadow: inset 1px 1px 2px var(--xp-dark-shadow);
+}
+
+/* ============================================
+   XP WINDOW CHROME
+   ============================================ */
+
+/* Outer colored frame */
+.xp-window-frame {
+  border-radius: 8px;
+  box-shadow: var(--shadow-xp-window);
+  border: 3px solid;
+  border-color: #3C8CF4 #245EDC #245EDC #3C8CF4;
+  overflow: hidden;
+}
+
+.dark .xp-window-frame {
+  border-color: #2B5EA8 #1E3A6E #1E3A6E #2B5EA8;
+}
+
+/* Window control buttons (minimize, maximize, close) */
+.xp-window-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 21px;
+  height: 21px;
+  border-radius: 3px;
+  cursor: default;
+  background: linear-gradient(
+    180deg,
+    var(--xp-btn-highlight) 0%,
+    var(--xp-btn-face) 45%,
+    var(--xp-shadow) 100%
+  );
+  border: 1px solid;
+  border-color: var(--xp-highlight) var(--xp-dark-shadow) var(--xp-dark-shadow) var(--xp-highlight);
+  color: var(--xp-text);
+}
+
+/* Close button — distinctive red */
+.xp-window-btn-close {
+  background: linear-gradient(180deg, #EBA17D 0%, #E36D5C 45%, #B1240E 100%);
+  border-color: #FFBDA8 #9B1D07 #9B1D07 #FFBDA8;
+}
+
+.dark .xp-window-btn-close {
+  background: linear-gradient(180deg, #8B3030 0%, #6B2020 45%, #4B1010 100%);
+  border-color: #A04040 #301010 #301010 #A04040;
+}
+
+.xp-window-btn-close svg {
+  color: white;
+}
+
+/* ============================================
+   XP START BUTTON (Taskbar)
+   ============================================ */
+.xp-start-btn {
+  background: linear-gradient(180deg, #3C9A3C 0%, #328432 50%, #286D28 100%);
+  border: 1px solid;
+  border-color: #5EBF5E #1A4E1A #1A4E1A #5EBF5E;
+  border-radius: 0 8px 8px 0;
+  color: white;
+  font-weight: bold;
+  font-style: italic;
+  cursor: pointer;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.dark .xp-start-btn {
+  background: linear-gradient(180deg, #2E7A2E 0%, #206420 50%, #185018 100%);
+  border-color: #408040 #103010 #103010 #408040;
+}
+
+.xp-start-btn:hover {
+  filter: brightness(1.1);
+}
+
+.xp-start-btn:active {
+  filter: brightness(0.9);
+}
+
+/* ============================================
+   XP SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar {
+  width: 17px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--xp-frame);
+  border-left: 1px solid var(--xp-shadow);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--xp-btn-face);
+  border: 1px solid;
+  border-color: var(--xp-highlight) var(--xp-shadow) var(--xp-shadow) var(--xp-highlight);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--xp-btn-highlight);
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
