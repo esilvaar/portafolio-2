@@ -2,36 +2,39 @@ import { projects } from "@/components/layouts/xp/data";
 
 export default function ExecutiveProjects() {
   return (
-    <section id="proyectos" className="flex flex-col gap-10">
+    <section id="proyectos" className="flex flex-col gap-12 py-12">
       <div className="flex items-center justify-between">
-        <h3 className="text-2xl font-bold tracking-tight">Proyectos Destacados</h3>
+        <h3 className="text-5xl md:text-6xl font-serif font-black uppercase relative z-10 inline-block">
+          Proyectos <span className="text-red-500">Destacados</span>
+          <div className="absolute -bottom-2 left-0 w-full h-6 bg-lime-400 -z-10 transform -rotate-2"></div>
+        </h3>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         {projects.map((p, index) => (
           <a 
             href={p.web || p.github} 
             target="_blank" 
             rel="noopener noreferrer"
             key={p.title} 
-            className={`group flex flex-col gap-5 p-6 md:p-8 rounded-[2rem] bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-300 ${index === 0 ? 'md:col-span-2' : ''}`}
+            className={`group flex flex-col gap-6 p-8 bg-white dark:bg-black border-4 border-black dark:border-white hover:-translate-y-2 hover:translate-x-2 transition-transform shadow-[12px_12px_0_#000] dark:shadow-[12px_12px_0_#fff] hover:shadow-[4px_4px_0_#000] dark:hover:shadow-[4px_4px_0_#fff] ${index === 0 ? 'md:col-span-2' : ''}`}
           >
             <div className="flex justify-between items-start">
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap gap-3 mb-2">
                 {p.tags.map(tag => (
-                  <span key={tag} className="px-3 py-1 text-xs font-medium bg-zinc-100 dark:bg-zinc-800 rounded-full text-zinc-600 dark:text-zinc-400">
+                  <span key={tag} className="px-3 py-1 text-sm font-bold bg-black dark:bg-white text-white dark:text-black uppercase tracking-wider">
                     {tag}
                   </span>
                 ))}
               </div>
-              <div className="p-2 bg-zinc-100 dark:bg-zinc-800 rounded-full opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+              <div className="w-12 h-12 bg-lime-400 border-4 border-black dark:border-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="3" strokeLinecap="square" strokeLinejoin="miter"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
               </div>
             </div>
             
             <div>
-              <h4 className="font-bold text-xl md:text-2xl mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{p.title}</h4>
-              <p className="text-zinc-500 dark:text-zinc-400 text-sm md:text-base leading-relaxed max-w-2xl">{p.description}</p>
+              <h4 className="font-serif font-black text-3xl md:text-5xl mb-4 group-hover:underline decoration-4 underline-offset-4">{p.title}</h4>
+              <p className="text-black dark:text-white font-medium text-lg leading-relaxed max-w-2xl">{p.description}</p>
             </div>
           </a>
         ))}

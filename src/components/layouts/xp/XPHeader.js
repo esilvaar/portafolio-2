@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import ThemeToggle from "@/components/ui/ThemeToggle";
+import { useLayoutTheme } from "@/context/ThemeContext";
 
 /**
  * Header — Barra fija estilo Windows XP.
@@ -11,8 +12,9 @@ import ThemeToggle from "@/components/ui/ThemeToggle";
  * - Menu bar (fondo gris con links de navegación + ThemeToggle)
  * - Mobile: menú desplegable estilo menú contextual XP
  */
-export default function Header({ navLinks }) {
+export default function Header({ navLinks, onWindowClick }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { toggleThemeMenu } = useLayoutTheme();
 
   return (
     <header className="z-50 shrink-0">
@@ -51,21 +53,25 @@ export default function Header({ navLinks }) {
       <nav className="bg-xp-frame border-b border-xp-border-light flex items-center justify-between px-1 py-[2px]">
         {/* Desktop navigation links */}
         <div className="hidden md:flex items-center">
-          {navLinks.map((link) => (
-            <a
+          {navLinks.map((link) => {
+            const id = link.href.replace('#', '');
+            return (
+            <button
               key={link.href}
-              href={link.href}
-              className="px-3 py-[3px] text-[13px] text-xp-text hover:bg-xp-selection hover:text-white transition-colors duration-75 no-underline"
+              type="button"
+              onClick={() => onWindowClick(id)}
+              className="px-3 py-[3px] text-[13px] text-xp-text hover:bg-xp-selection hover:text-white transition-colors duration-75 no-underline cursor-pointer"
             >
               {link.label}
-            </a>
-          ))}
-          <a
-            href="#contacto"
-            className="px-3 py-[3px] text-[13px] text-xp-text font-bold hover:bg-xp-selection hover:text-white transition-colors duration-75 no-underline"
+            </button>
+          )})}
+          <button
+            type="button"
+            onClick={() => onWindowClick("contacto")}
+            className="px-3 py-[3px] text-[13px] text-xp-text font-bold hover:bg-xp-selection hover:text-white transition-colors duration-75 no-underline cursor-pointer"
           >
             Hablemos
-          </a>
+          </button>
         </div>
 
         {/* Mobile hamburger */}
@@ -91,33 +97,42 @@ export default function Header({ navLinks }) {
           </svg>
         </button>
 
-        {/* Theme toggle */}
-        <div className="flex items-center">
+        {/* Theme toggle and Theme menu */}
+        <div className="flex items-center gap-2 pr-1">
+          <button
+            type="button"
+            onClick={toggleThemeMenu}
+            className="xp-bevel-raised bg-xp-btn-face text-xp-text px-3 py-1 text-[13px] font-bold cursor-pointer select-none hover:bg-xp-btn-highlight"
+          >
+            Temas
+          </button>
           <ThemeToggle />
         </div>
       </nav>
 
       {/* Mobile Dropdown — XP context menu style */}
       {isMenuOpen && (
-        <div className="bg-xp-window border border-xp-shadow shadow-lg md:hidden xp-bevel-raised">
+        <div className="bg-xp-window border border-xp-shadow shadow-lg md:hidden xp-bevel-raised absolute top-full left-0 mt-1 z-50">
           <div className="py-0.5">
-            {navLinks.map((link) => (
-              <a
+            {navLinks.map((link) => {
+              const id = link.href.replace('#', '');
+              return (
+              <button
                 key={link.href}
-                href={link.href}
-                onClick={() => setIsMenuOpen(false)}
-                className="block px-6 py-1.5 text-[13px] text-xp-text hover:bg-xp-selection hover:text-white transition-colors duration-75 no-underline"
+                type="button"
+                onClick={() => { onWindowClick(id); setIsMenuOpen(false); }}
+                className="w-full text-left block px-6 py-1.5 text-[13px] text-xp-text hover:bg-xp-selection hover:text-white transition-colors duration-75 no-underline cursor-pointer"
               >
                 {link.label}
-              </a>
-            ))}
-            <a
-              href="#contacto"
-              onClick={() => setIsMenuOpen(false)}
-              className="block px-6 py-1.5 text-[13px] text-xp-text font-bold hover:bg-xp-selection hover:text-white transition-colors duration-75 no-underline"
+              </button>
+            )})}
+            <button
+              type="button"
+              onClick={() => { onWindowClick("contacto"); setIsMenuOpen(false); }}
+              className="w-full text-left block px-6 py-1.5 text-[13px] text-xp-text font-bold hover:bg-xp-selection hover:text-white transition-colors duration-75 no-underline cursor-pointer"
             >
               Hablemos
-            </a>
+            </button>
           </div>
         </div>
       )}

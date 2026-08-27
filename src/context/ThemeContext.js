@@ -7,6 +7,7 @@ const ThemeContext = createContext();
 export function ThemeProvider({ children }) {
   const [layoutTheme, setLayoutTheme] = useState("executive");
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isThemeMenuOpen, setIsThemeMenuOpen] = useState(false);
 
   useEffect(() => {
     const savedLayout = localStorage.getItem("layoutTheme");
@@ -19,10 +20,14 @@ export function ThemeProvider({ children }) {
   const changeLayout = (newTheme) => {
     setLayoutTheme(newTheme);
     localStorage.setItem("layoutTheme", newTheme);
+    setIsThemeMenuOpen(false); // Cierra el menú automáticamente
   };
 
+  const toggleThemeMenu = () => setIsThemeMenuOpen((prev) => !prev);
+  const closeThemeMenu = () => setIsThemeMenuOpen(false);
+
   return (
-    <ThemeContext.Provider value={{ layoutTheme, changeLayout, isLoaded }}>
+    <ThemeContext.Provider value={{ layoutTheme, changeLayout, isLoaded, isThemeMenuOpen, toggleThemeMenu, closeThemeMenu }}>
       {children}
     </ThemeContext.Provider>
   );

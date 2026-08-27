@@ -25,18 +25,18 @@ const WINDOWS = [
     title: "Contacto",
     icon: "📧",
     titleAs: "h2",
-    x: 15,
-    y: 15,
-    width: "min(85vw, 750px)",
+    x: "10vw",
+    y: "10vh",
+    width: "80vw",
   },
   {
     id: "experiencia",
     title: "Experiencia",
     icon: "💼",
     titleAs: "h2",
-    x: 50,
-    y: 50,
-    width: "min(88vw, 850px)",
+    x: "10vw",
+    y: "12vh",
+    width: "80vw",
   },
   {
     id: "skills",
@@ -44,9 +44,9 @@ const WINDOWS = [
     icon: "⚙️",
     titleAs: "h2",
     statusText: `${skills.length} objeto(s)`,
-    x: 85,
-    y: 85,
-    width: "min(88vw, 850px)",
+    x: "10vw",
+    y: "14vh",
+    width: "80vw",
   },
   {
     id: "proyectos",
@@ -54,18 +54,18 @@ const WINDOWS = [
     icon: "📁",
     titleAs: "h2",
     statusText: `${projects.length} objeto(s)`,
-    x: 120,
-    y: 120,
-    width: "min(90vw, 920px)",
+    x: "10vw",
+    y: "16vh",
+    width: "80vw",
   },
   {
     id: "hero",
     title: "Mi Perfil — Eduardo Silva",
     icon: "👤",
     titleAs: "span",
-    x: 155,
-    y: 155,
-    width: "min(92vw, 950px)",
+    x: "10vw",
+    y: "5vh",
+    width: "80vw",
   },
 ];
 
@@ -93,7 +93,7 @@ export default function XPLayout() {
     const states = {};
     WINDOWS.forEach((w, i) => {
       states[w.id] = {
-        minimized: false,
+        minimized: w.id !== "hero", // Solo el hero se muestra al inicio
         maximized: false,
         zIndex: i + 1, // First in array = lowest z-index (back)
       };
@@ -194,7 +194,7 @@ export default function XPLayout() {
 
   return (
     <div className="h-screen flex flex-col overflow-hidden bg-xp-desktop">
-      <Header navLinks={navLinks} />
+      <Header navLinks={navLinks} onWindowClick={handleTaskbarClick} />
 
       <main
         className={`flex-1 ${isMobile ? "px-3 py-4 space-y-4 overflow-y-auto" : "relative overflow-hidden"}`}

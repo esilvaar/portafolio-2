@@ -1,34 +1,62 @@
 "use client";
 
 import { useLayoutTheme } from "@/context/ThemeContext";
+import { useEffect } from "react";
 
 export default function ThemeSwitcher() {
-  const { layoutTheme, changeLayout, isLoaded } = useLayoutTheme();
+  const { layoutTheme, changeLayout, isLoaded, isThemeMenuOpen, closeThemeMenu } = useLayoutTheme();
 
-  if (!isLoaded) return null;
+  // Prevenir el scroll del fondo cuando el menú está abierto
+  useEffect(() => {
+    if (isThemeMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [isThemeMenuOpen]);
+
+  if (!isLoaded || !isThemeMenuOpen) return null;
 
   return (
-    <div className="fixed bottom-6 right-6 z-[9999] flex flex-col gap-2">
-      <button
-        onClick={() => changeLayout("executive")}
-        className={`px-4 py-2 rounded-full text-sm font-medium shadow-lg transition-all ${
-          layoutTheme === "executive"
-            ? "bg-black text-white dark:bg-white dark:text-black scale-105"
-            : "bg-white text-gray-600 hover:bg-gray-100 dark:bg-zinc-800 dark:text-gray-300 dark:hover:bg-zinc-700"
-        }`}
+    <div className="fixed inset-0 z-[99999] bg-black text-white flex flex-col items-center justify-center p-6 md:p-12 animate-in fade-in duration-300">
+      <button 
+        onClick={closeThemeMenu}
+        className="absolute top-8 right-8 text-white hover:text-red-500 font-bold text-2xl uppercase tracking-widest transition-colors cursor-pointer"
       >
-        Executive Theme
+        CERRAR [X]
       </button>
-      <button
-        onClick={() => changeLayout("xp")}
-        className={`px-4 py-2 rounded-full text-sm font-bold font-sans shadow-lg transition-all border-b-2 border-r-2 ${
-          layoutTheme === "xp"
-            ? "bg-[#0F8BEF] text-white border-blue-900 scale-105"
-            : "bg-xp-btn-face text-black border-gray-400 hover:bg-xp-btn-highlight"
-        }`}
-      >
-        Windows XP
-      </button>
+
+      <h2 className="text-4xl md:text-7xl font-serif font-black uppercase mb-16 md:mb-24 text-center tracking-tighter">
+        SELECCIONA<br />UN TEMA
+      </h2>
+
+      <div className="flex flex-col md:flex-row gap-8 md:gap-12 w-full max-w-5xl justify-center">
+        {/* Botón Ejecutivo */}
+        <button
+          onClick={() => changeLayout("executive")}
+          className={`flex-1 flex flex-col items-center justify-center gap-6 p-12 border-4 transition-transform hover:-translate-y-2 hover:translate-x-2 cursor-pointer ${
+            layoutTheme === "executive" 
+              ? "bg-white text-black border-white shadow-[16px_16px_0_#fff]" 
+              : "bg-black text-white border-white hover:bg-white hover:text-black hover:shadow-[16px_16px_0_#fff]"
+          }`}
+        >
+          <span className="text-4xl md:text-6xl font-serif font-black uppercase">EJECUTIVO</span>
+          <span className="font-sans font-bold uppercase tracking-widest text-sm bg-lime-400 text-black px-6 py-2 border-2 border-black">ESTILO BRUTALISTA</span>
+        </button>
+
+        {/* Botón XP */}
+        <button
+          onClick={() => changeLayout("xp")}
+          className={`flex-1 flex flex-col items-center justify-center gap-6 p-12 border-4 transition-transform hover:-translate-y-2 hover:translate-x-2 cursor-pointer ${
+            layoutTheme === "xp" 
+              ? "bg-[#ECE9D8] text-black border-[#ECE9D8] shadow-[16px_16px_0_#0A246A]" 
+              : "bg-black text-white border-[#ECE9D8] hover:bg-[#ECE9D8] hover:text-black hover:shadow-[16px_16px_0_#0A246A]"
+          }`}
+        >
+          <span className="text-4xl md:text-6xl font-serif font-black uppercase">RETRO XP</span>
+          <span className="font-sans font-bold uppercase tracking-widest text-sm bg-blue-600 text-white px-6 py-2 border-2 border-black">ESTILO Y2K / NOSTALGIA</span>
+        </button>
+      </div>
     </div>
   );
 }

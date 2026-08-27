@@ -39,8 +39,24 @@ export default function XPWindow({
 }) {
   const [pos, setPos] = useState({ x: initialX, y: initialY });
   const [dragging, setDragging] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
   const dragOrigin = useRef({ mx: 0, my: 0, px: 0, py: 0 });
   const windowRef = useRef(null);
+
+  useEffect(() => {
+    let startX = initialX;
+    let startY = initialY;
+    
+    if (typeof initialX === "string" && initialX.endsWith("vw")) {
+      startX = (parseFloat(initialX) / 100) * window.innerWidth;
+    }
+    if (typeof initialY === "string" && initialY.endsWith("vh")) {
+      startY = (parseFloat(initialY) / 100) * window.innerHeight;
+    }
+    
+    setPos({ x: startX, y: startY });
+    setHasMounted(true);
+  }, [initialX, initialY]);
 
   /* ========================
      DRAG LOGIC
@@ -143,10 +159,10 @@ export default function XPWindow({
         }
       : {
           position: "absolute",
-          left: pos.x,
-          top: pos.y,
+          left: hasMounted ? pos.x : initialX,
+          top: hasMounted ? pos.y : initialY,
           zIndex,
-          width: windowWidth || "min(90vw, 900px)",
+          width: windowWidth || "80vw",
         }
     : {};
 
